@@ -5,7 +5,11 @@
 
 dna = 'ATAGCGAATATCTCTCATGAGAGGGAA'
 
-# your code goes here
+
+print('python3 codons.py')
+for i in range(0,28,3):
+	print(dna[i:i+3])
+
 
 """
 python3 codons.py

@@ -6,9 +6,13 @@
 # Use the same loop for both calculations
 
 n = 5
-
-# your code goes here
-
+addition = 0
+multiplication = 1
+print('python3 sumfac.py')
+for i in range (1,6):
+	addition += i
+	multiplication *= i
+print(n,addition,multiplication)
 """
 python3 sumfac.py
 5 15 120
