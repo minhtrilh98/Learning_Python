@@ -36,6 +36,32 @@ def randseq(genome_size,cg_composition):
 
         return seq
 
+def longest_orf(seq):
+	max_start  = None
+	max_stop   = None
+	max_length = 0
+	for frame in range(0, 3):
+		for i in range(frame, len(seq)-2, 3):
+			codon = seq[i:i+3]
+			if codon == 'ATG':
+				start = i
+				stop = None
+				for j in range(i+3, len(seq)-2, 3):
+					codon = seq[j:j+3]
+					if codon == 'TAA' or codon == 'TGA' or codon == 'TAG':
+						stop = j
+						break
+				if stop != None:				
+					length = stop - start + 1
+					if length > max_length:
+						max_length = length
+						max_start  = start
+						max_stop   = stop
+	if max_length > 0:
+		return seq[max_start:max_stop+3]
+	else:
+		return ''
+
 
 
 
